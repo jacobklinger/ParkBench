@@ -1,0 +1,390 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" lang="en">
+        <title>ParkBench API</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <header>
+            <a href="/"><h1>ParkBench API</h1></a>
+        </header>
+        <main>
+            <h2>About</h2>
+            <div class="section">
+                <h3>What is this API for?</h3>
+                <p>This API is for access to data on Disney parks, including resorts, parks, hotels, dining, and attractions.</p>
+                <h3>How much data does this API currently have?</h3>
+                <p>At present, this API only has data for Disneyland Resort, but all six worldwide resorts are coming soon! Most resources have GPS coordinates, opening date, and official name.</p>
+                <h3>Future Plans</h3>
+                <p>Resources will soon have more information (type of dining for dining, ride length for attractions). Shopping districts like Downtwon Disney and Disney Sprins will be added as resources soon. Other data planned includes character meets, snacks, transportation, and live wait times.</p>
+                <h3>Can I contribute to this API?</h3>
+                <p>Yes, on <a href="">Github!</a></p>
+            </div>
+            <h2>Example Requests</h2>
+            <div class="section">
+                <h3>Disneyland Resort</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort">parkbenchapi.com/api/resorts/disneyland-resort</a></td>
+                    </tr>
+                </table>
+                <h3>Disneyland Park</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park">parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park</a></td>
+                    </tr>
+                </table>
+                <h3>Disneyland Hotel</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort/hotels/disneyland-hotel">parkbenchapi.com/api/resorts/disneyland-resort/hotels/disneyland-hotel</a></td>
+                    </tr>
+                </table>
+                <h3>Trader Sam's Enchanted Tiki Bar at the Disneyland Hotel</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort/hotels/disneyland-hotel/dining/trader-sams-enchanted-tiki-bar">parkbenchapi.com/api/resorts/disneyland-resort/hotels/disneyland-hotel/dining/trader-sams-enchanted-tiki-bar</a></td>
+                    </tr>
+                </table>
+                <h3>Blue Bayou Restaurant at Disneyland Park</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park/dining/blue-bayou-restaurant">parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park/dining/blue-bayou-restaurant</a></td>
+                    </tr>
+                </table>
+                <h3>Jungle Cruise at Disneyland Park</h3>
+                <table>
+                    <tr>
+                        <td>GET <a href="http://parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park/attractions/jungle-cruise">parkbenchapi.com/api/resorts/disneyland-resort/parks/disneyland-park/attractions/jungle-cruise</a></td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Resources</h2>
+            <div class="section">
+                <h3>Resorts</h3>
+                <p>A Resort represents one of the six Disney resorts in the world.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of resorts</th>
+                        <td>GET parkbenchapi.com/api/resorts</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific resort</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this resort</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this resort</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>city</td>
+                        <td>The city in which this resort is located</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>The state or province in which this resort is located</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>country</td>
+                        <td>The country in which this resort is located</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this resort</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this resort</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>dateOpened</td>
+                        <td>The opening date of this resort in yyyy-mm-dd format</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>Parks</h3>
+                <p>A Park represents a theme park within on of the worldwide resorts.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of parks within a specific resort</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific park</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks/{parkID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this park</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this park</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this park</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this park</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>dateOpened</td>
+                        <td>The opening date of this park in yyyy-mm-dd format</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>Hotels</h3>
+                <p>A Hotel represents a hotel within on of the worldwide resorts.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of hotels within a specific resort</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/hotels</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific hotel</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/hotels/{hotelID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this hotel</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this hotel</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this hotel</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this hotel</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>dateOpened</td>
+                        <td>The opening date of this hotel in yyyy-mm-dd format</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>Park Dining</h3>
+                <p>A Park Dining resource represents a dining option within a theme park.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of dining options within a specific theme park</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks/{parkID}/dining</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific dining option</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks/{parkID}/dining/{diningID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this dining option</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this dining option</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this dining option</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this dining option</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>Hotel Dining</h3>
+                <p>A Hotel Dining resource represents a dining option within a hotel.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of dining options within a specific hotel</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/hotels/{hotelID}/dining</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific dining option</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/hotels/{hotelID}/dining/{diningID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this dining option</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this dining option</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this dining option</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this dining option</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="section">
+                <h3>Attractions</h3>
+                <p>An Attraction represents an attraction within a theme park.</p>
+                <h4>Requests</h4>
+                <table>
+                    <tr>
+                        <th>Get a list of attractions within a specific theme park</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks/{parkID}/attractions</td>
+                    </tr>
+                    <tr>
+                        <th>Get a specific attraction</th>
+                        <td>GET parkbenchapi.com/api/resorts/{resortID}/parks/{parkID}/attractions/{attractionID}</td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>The identifier for this attraction</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>name</td>
+                        <td>The official name for this attraction</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>longitude</td>
+                        <td>The longitude of the geographic coordinates of this attraction</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>latitude</td>
+                        <td>The latitude of the geographic coordinates of this attraction</td>
+                        <td>double</td>
+                    </tr>
+                    <tr>
+                        <td>dateOpened</td>
+                        <td>The opening date of this attraction in yyyy-mm-dd format</td>
+                        <td>String</td>
+                    </tr>
+                    <tr>
+                        <td>links</td>
+                        <td>List of links to parent resources and sub-resources</td>
+                        <td>List of Linked Resources</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </body>
+</html>

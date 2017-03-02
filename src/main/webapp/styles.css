@@ -1,0 +1,72 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    margin: 0px;
+    margin: 0px;
+    color: dodgerblue;
+}
+
+header {
+    background: #AB47BC;
+    color: white;
+}
+
+main {
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 10px;
+}
+
+.section {
+    padding-left: 10px;
+    padding-bottom: 1em;
+}
+
+header a {
+    color: white;
+}
+
+h1 {
+    margin: 0px;
+    padding: .6em;
+    padding-left: 1em;
+}
+
+h2, h3, h4 {
+    margin: 0;
+    margin-top: 1em;
+}
+
+h3 {
+    padding-bottom: 4px;
+    border-bottom: 2px solid #AB47BC;
+    margin-bottom: .5em;
+}
+
+p, table {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    overflow-x: scroll;
+}
+
+main:after {
+    content: "";
+    padding: 10px;
+}
