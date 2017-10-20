@@ -1,6 +1,6 @@
 package com.parkbenchapi.model;
 
-public class LocatableEntity extends Entity {
+public abstract class LocatableResource extends Resource {
 	
 	private double longitude;
 	private double latitude;

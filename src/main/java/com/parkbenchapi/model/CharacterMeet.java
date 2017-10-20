@@ -1,6 +1,6 @@
 package com.parkbenchapi.model;
 
-public class Character {
+public class CharacterMeet {
 
 	private String characterName;
 	private String attractionName;
