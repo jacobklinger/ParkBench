@@ -1,21 +1,39 @@
 package com.parkbenchapi.model;
 
+import java.util.ArrayList;
+
 public class CharacterMeet {
 
+	private ArrayList<Link> links = new ArrayList<Link>();
 	private String characterName;
-	private String attractionName;
+	private NameAndURL resort;
 	
 	public String getCharacterName() {
 		return characterName;
 	}
+	
+	public NameAndURL getResort() {
+		return resort;
+	}
+
+	public void setResort(String resortName, String resortId) {
+		this.resort = new NameAndURL(resortName, "/resorts/" + resortId);
+	}
+	
 	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
-	public String getAttractionName() {
-		return attractionName;
+	
+	public ArrayList<Link> getLinks() {
+		return links;
 	}
-	public void setAttractionName(String attractionName) {
-		this.attractionName = attractionName;
-	}	
+	
+	protected void addLink(Link link) {
+		links.add(link);
+	}
+	
+	public void generateLinks(String resortId, String characterId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/characters/" + characterId));
+	}
 	
 }

@@ -16,7 +16,7 @@ public class ParkRowMapper implements RowMapper{
 		park.setLongitude(rs.getDouble("longitude"));
 		park.setLatitude(rs.getDouble("latitude"));
 		park.setResort(rs.getString("resort_name"), rs.getString("resortId"));
-		park.generateLinks(rs.getString("parkId"));
+		park.generateLinks(rs.getString("resortId"), rs.getString("parkId"));
 		return park;
 	}
 	

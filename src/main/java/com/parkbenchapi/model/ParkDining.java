@@ -1,6 +1,6 @@
 package com.parkbenchapi.model;
 
-public class Entertainment extends LocatableResource{
+public class ParkDining extends LocatableResource {
 
 	private String land;
 	private NameAndURL park;
@@ -30,9 +30,8 @@ public class Entertainment extends LocatableResource{
 		this.resort = new NameAndURL(resortName, "/resorts/" + resortId);
 	}
 	
-//	@Override
-	public void generateLinks(String resortId, String parkId, String entertainmentId) {
-		addLink(new Link("self", "/resorts/" + resortId + "/parks/" + parkId + "/entertainment/" + entertainmentId));
+	public void generateLinks(String resortId, String parkId, String diningId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/parks/" + parkId + "/dining/" + diningId));
 	}
 	
 }

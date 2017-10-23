@@ -12,12 +12,11 @@ public class Park extends LocatableResource{
 		this.resort = new NameAndURL(resortName, "/resorts/" + resortId);
 	}
 	
-	@Override
-	public void generateLinks(String id) {
-		addLink(new Link("self", "/parks/" + id));
-		addLink(new Link("dining", "/parks/" + id + "/dining/"));
-		addLink(new Link("attractions", "/parks/" + id + "/attractions/"));
-		addLink(new Link("entertainment", "/parks/" + id + "/entertainment/"));
+	public void generateLinks(String resortId, String parkId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/parks/" + parkId));
+		addLink(new Link("dining", "/resorts/" + resortId + "/parks/" + parkId + "/dining"));
+		addLink(new Link("attractions", "/resorts/" + resortId + "/parks/" + parkId + "/attractions"));
+		addLink(new Link("entertainment", "/resorts/" + resortId + "/parks/" + parkId + "/entertainment"));
 		addLink(new Link("location", "/parks/location?longitude=" + getLongitude() + "&latitude=" + getLatitude() + "&radius=0"));
 	}
 	

@@ -12,7 +12,8 @@ public class CharacterRowMapper implements RowMapper{
 	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
 		CharacterMeet character = new CharacterMeet();
 		character.setCharacterName(rs.getString("name"));
-		character.setAttractionName(rs.getString("attraction_name"));
+		character.setResort(rs.getString("resort_name"), rs.getString("resortId"));
+		character.generateLinks(rs.getString("resortId"), rs.getString("characterId"));
 		return character;
 	}
 	

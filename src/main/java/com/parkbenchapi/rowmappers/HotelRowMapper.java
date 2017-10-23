@@ -18,7 +18,7 @@ public class HotelRowMapper implements RowMapper{
 		hotel.setLatitude(rs.getDouble("latitude"));
 		hotel.setResortArea(rs.getString("resort_area"));
 		hotel.setResort(rs.getString("resort_name"), rs.getString("resortId"));
-		hotel.generateLinks(rs.getString("hotelId"));
+		hotel.generateLinks(rs.getString("resortId"), rs.getString("hotelId"));
 		return hotel;
 	}
 	

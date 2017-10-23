@@ -6,48 +6,54 @@ import com.parkbenchapi.model.CharacterMeet;
 
 public interface DataAccessObject {
 	
-	public ArrayList<Resort> getAllResorts();
-	public Resort getResortById(String name);
+	public ArrayList<Resort> getResorts();
+	public Resort getResortById(String resortId);
 	public ArrayList<Resort> getResortsByLocation(double longitude, double latitude, double radius);
+	public ArrayList<Resort> getAllResorts(String name);
 	
-	public ArrayList<Park> getAllParks();
-	public Park getParkById(String resortId, String name);
-	public ArrayList<Park> getParksByResort(String resortId);
+	public ArrayList<Park> getParks(String resortId);
+	public Park getParkById(String resortId, String parkId);
 	public ArrayList<Park> getParkByLocation(double longitude, double latitude, double radius);
+	public ArrayList<Park> getAllParks();
+	public ArrayList<Park> getAllParks(String parkName, String resortName);
 	
-	public Hotel getHotelById(String name);
-	public ArrayList<Hotel> getHotelsByResort(String resortId);
-	public ArrayList<Hotel> getHotelByResortArea(String resortArea);
+	public ArrayList<Hotel> getHotels(String resortId);
+	public Hotel getHotelById(String resortId, String hotelId);
 	public ArrayList<Hotel> getHotelsByLocation(double longitude, double latitude, double radius);
 	public ArrayList<Hotel> getAllHotels();
-
-	public Attraction getAttractionById(String id);
-	public Attraction getAttractionParkAndById(String parkId, String resortId);
-	public Attraction getAttractionResortAndById(String parkId, String resortId);
-	public ArrayList<Attraction> getAttractionsByPark(String parkId);
-	public ArrayList<Attraction> getAttractionsByResort(String resortId);
+	public ArrayList<Hotel> getAllHotels(String hotelName, String resortName);
+	
+	public ArrayList<Attraction> getAttractions(String resortId, String parkId);
+	public Attraction getAttractionById(String resortId, String parkId, String attractionId);
 	public ArrayList<Attraction> getAttractionsByLocation(double longitude, double latitude,double radius);
 	public ArrayList<Attraction> getAllAttractions();
+	public ArrayList<Attraction> getAllAttractions(String attractionName, String resortName, String parkName);
 	
+	public ArrayList<ParkDining> getParkDining(String resortId, String parkId);
+	public ParkDining getParkDiningById(String resortId, String parkId, String diningId);
+	public ArrayList<ParkDining> getParkDiningByLocation(double longitude, double latitude,double radius);
 	
-	public Dining getDiningById(String id);
-	public ArrayList<Dining> getDiningByResort(String resortId);
-	public ArrayList<Dining> getDiningByPark(String parkId);
-	public ArrayList<Dining> getDiningByHotel(String hotelName);
-	public ArrayList<Dining> getDiningByLocation(double longitude, double latitude,double radius);
-	public ArrayList<Dining> getAllDining();
-	
-	public Entertainment getEntertainmentById(String id);
-	public ArrayList<Entertainment> getEntertainmentByResort(String resortId);
-	public ArrayList<Entertainment> getEntertainmentByPark(String parkName);
+	public ArrayList<Entertainment> getEntertainment(String resortId, String parkId);
+	public Entertainment getEntertainmentById(String resortId, String parkId, String entertainmentId);
 	public ArrayList<Entertainment> getAllEntertainment();
+	public ArrayList<Entertainment> getAllEntertainment(String entertainmentName, String resortName, String parkName);
 	
-	public CharacterMeet getCharacterById(String id);
-	public ArrayList<CharacterMeet> getCharactersByResort(String resortId);
+	public ArrayList<HotelDining> getHotelDining(String resortId, String hotelId);
+	public HotelDining getHotelDiningById(String resortId, String hotelId, String diningId);
+	public ArrayList<HotelDining> getHotelDiningByLocation(double longitude, double latitude,double radius);
+	
+	public ArrayList<LocatableResource> getDiningByLocation(double longitude, double latitude,double radius);
+	public ArrayList<LocatableResource> getAllDining();
+	public ArrayList<LocatableResource> getAllDining(String diningName, String resortName, String hotelName, String parkName);
+	
+	public ArrayList<CharacterMeet> getCharacters(String resortId);
+	public CharacterMeet getCharacterById(String resortId, String characterId);
 	public ArrayList<CharacterMeet> getAllCharacters();
+	public ArrayList<CharacterMeet> getAllCharacters(String characterName, String resortName);
 	
-	public Snack getSnackById(String id);
-	public ArrayList<Snack> getSnacksByResort(String resortId);
+	public ArrayList<Snack> getSnacks(String resortId);
+	public Snack getSnackById(String resortId, String snackId);
 	public ArrayList<Snack> getAllSnacks();
+	public ArrayList<Snack> getAllSnacks(String snackName, String resortName);
 	
 }

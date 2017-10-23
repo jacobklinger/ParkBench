@@ -13,9 +13,10 @@ public class EntertainmentRowMapper implements RowMapper{
 		Entertainment entertainment = new Entertainment();
 		entertainment.setName(rs.getString("name"));
 		entertainment.setShortName(rs.getString("short_name"));
-		entertainment.setLongitude(rs.getDouble("longitude"));
-		entertainment.setLatitude(rs.getDouble("latitude"));
-		entertainment.generateLinks(rs.getString("entertainmentId"));
+		entertainment.setPark(rs.getString("park_name"), rs.getString("resortId"), rs.getString("parkId"));
+		entertainment.setResort(rs.getString("resort_name"), rs.getString("resortId"));
+		entertainment.setLand(rs.getString("land"));
+		entertainment.generateLinks(rs.getString("resortId"), rs.getString("parkId"), rs.getString("entertainmentId"));
 		return entertainment;
 	}
 	

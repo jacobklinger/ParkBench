@@ -21,10 +21,10 @@ public class Hotel extends LocatableResource{
 		this.resortArea = resortArea;
 	}
 
-	@Override
-	public void generateLinks(String id) {
-		addLink(new Link("self", "/hotels/" + id));
-		addLink(new Link("dining", "/hotels/" + id + "/dining/"));
+//	@Override
+	public void generateLinks(String resortId, String hotelId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/hotels/" + hotelId));
+		addLink(new Link("dining", "/resorts/" + resortId + "/hotels/" + hotelId + "/dining/"));
 		addLink(new Link("location", "/hotels/location?longitude=" + getLongitude() + "&latitude=" + getLatitude() + "&radius=0"));
 	}
 	
