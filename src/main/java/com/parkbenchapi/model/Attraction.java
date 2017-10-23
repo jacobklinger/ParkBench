@@ -20,8 +20,8 @@ public class Attraction extends LocatableResource {
 		return park;
 	}
 
-	public void setPark(String parkName, String parkId) {
-		this.park = new NameAndURL(parkName, "/parks/" + parkId);
+	public void setPark(String parkName, String resortId, String parkId) {
+		this.park = new NameAndURL(parkName, "/resorts/" + resortId + "/parks/" + parkId);
 	}
 	
 	public NameAndURL getResort() {
@@ -32,8 +32,8 @@ public class Attraction extends LocatableResource {
 		this.resort = new NameAndURL(resortName, "/resorts/" + resortId);
 	}
 	
-	public void generateLinks(String id) {
-		addLink(new Link("self", "/attractions/" + id));
+	public void generateLinks(String resortId, String parkId, String attractionId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/parks/" + parkId + "/attractions/" + attractionId));
 	}
 	
 }

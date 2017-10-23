@@ -11,28 +11,29 @@ import com.parkbenchapi.dao.DataAccessObjectImpl;
 import com.parkbenchapi.model.*;
 
 @RestController
-@RequestMapping("/resorts")
 public class ResortController {
 
 	@Autowired
 	DataAccessObjectImpl dao;
 
-	@RequestMapping(method = RequestMethod.GET)
-	ResponseEntity<ArrayList<Resort>> getAllResorts() {
-		return new ResponseEntity<ArrayList<Resort>>(dao.getAllResorts(), HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.GET, value="/resorts")
+	ResponseEntity<ArrayList<Resort>> getResorts(@RequestParam(value = "name", required = false)  String name) {
+		if (name != null) {
+			return new ResponseEntity<ArrayList<Resort>>(dao.getAllResorts(name), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<ArrayList<Resort>>(dao.getResorts(), HttpStatus.OK);
+		}
 	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
-	ResponseEntity<Resort> getResortByName(@PathVariable String id) {
-		return new ResponseEntity<Resort>(dao.getResortById(id), HttpStatus.OK);
+	
+	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}")
+	ResponseEntity<Resort> getResortById(@PathVariable String resortId) {
+		return new ResponseEntity<Resort>(dao.getResortById(resortId), HttpStatus.OK);
 	}
-
-	@RequestMapping(method = RequestMethod.GET, value = "/location")
-	ResponseEntity<ArrayList<Resort>> getResortByLocation(@RequestParam("longitude") String longitude, @RequestParam("latitude") String latitude, @RequestParam("radius") String radius) {
-		double longitudeDouble = Double.parseDouble(longitude);
-		double latitudeDouble = Double.parseDouble(latitude);
-		double radiusDouble = Double.parseDouble(radius);
-		return new ResponseEntity<ArrayList<Resort>>(dao.getResortsByLocation(longitudeDouble, latitudeDouble, radiusDouble), HttpStatus.OK);
+	
+	@RequestMapping(method = RequestMethod.GET, value="/resorts/location")
+	ResponseEntity<ArrayList<Resort>> getResortsByLocation(@RequestParam double longitude, @RequestParam double latitude, @RequestParam double radius) {
+		return new ResponseEntity<ArrayList<Resort>>(dao.getResortsByLocation(longitude, latitude, radius), HttpStatus.OK);
 	}
 
 }

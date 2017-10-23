@@ -16,19 +16,24 @@ public class EntertainmentController {
 	@Autowired
 	DataAccessObjectImpl dao;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/entertainment")
-	ResponseEntity<ArrayList<Entertainment>> getAllAttractions() {
-		return new ResponseEntity<ArrayList<Entertainment>>(dao.getAllEntertainment(), HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/parks/{parkId}/entertainment")
+	ResponseEntity<ArrayList<Entertainment>> getEntertainment(@PathVariable String resortId, @PathVariable String parkId) {
+		return new ResponseEntity<ArrayList<Entertainment>>(dao.getEntertainment(resortId, parkId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/entertainment/{id}")
-	ResponseEntity<Entertainment> getParkByName(@PathVariable String id) {
-		return new ResponseEntity<Entertainment>(dao.getEntertainmentById(id), HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/parks/{parkId}/entertainment/{entertainmentId}")
+	ResponseEntity<Entertainment> getEntertainmentById(@PathVariable String resortId, @PathVariable String parkId, @PathVariable String entertainmentId) {
+		return new ResponseEntity<Entertainment>(dao.getEntertainmentById(resortId, parkId, entertainmentId), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/parks/{parkId}/entertainment")
-	ResponseEntity<ArrayList<Entertainment>> getAttractionsByParkId(@PathVariable String parkId) {
-		return new ResponseEntity<ArrayList<Entertainment>>(dao.getEntertainmentByPark(parkId), HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.GET, value="/entertainment")
+	ResponseEntity<ArrayList<Entertainment>> getAllAttractions(@RequestParam(value = "name", required = false)  String entertainmentName, @RequestParam(value = "park", required = false)  String parkName, @RequestParam(value = "resort", required = false)  String resortName) {
+		if (parkName != null || resortName != null || entertainmentName != null) {
+			return new ResponseEntity<ArrayList<Entertainment>>(dao.getAllEntertainment(entertainmentName,  parkName, resortName), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<ArrayList<Entertainment>>(dao.getAllEntertainment(), HttpStatus.OK);
+		}
 	}
 
 }

@@ -32,6 +32,6 @@ public abstract class Resource {
 		links.add(link);
 	}
 	
-	public abstract void generateLinks(String id);
+//	public abstract void generateLinks(String id);
 
 }

@@ -1,17 +1,39 @@
 package com.parkbenchapi.model;
 
-public class Snack extends LocatableResource{
+import java.util.ArrayList;
 
-	@Override
-	public void generateLinks(String id) {
-		addLink(new Link("self", "/resorts/" + id));
-		addLink(new Link("parks", "/resorts/" + id + "/parks/"));
-		addLink(new Link("hotels", "/resorts/" + id + "/hotels/"));
-		addLink(new Link("dining", "/resorts/" + id + "/dining/"));
-		addLink(new Link("attractions", "/resorts/" + id + "/attractions/"));
-		addLink(new Link("entertainment", "/resorts/" + id + "/entertainment/"));
-		addLink(new Link("characters", "/resorts/" + id + "/characters/"));
-		addLink(new Link("snacks", "/resorts/" + id + "/snacks/"));
+public class Snack {
+
+	private ArrayList<Link> links = new ArrayList<Link>();
+	private String name;
+	private NameAndURL resort;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public NameAndURL getResort() {
+		return resort;
+	}
+
+	public void setResort(String resortName, String resortId) {
+		this.resort = new NameAndURL(resortName, "/resorts/" + resortId);
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public ArrayList<Link> getLinks() {
+		return links;
+	}
+	
+	protected void addLink(Link link) {
+		links.add(link);
+	}
+	
+	public void generateLinks(String resortId, String snackId) {
+		addLink(new Link("self", "/resorts/" + resortId + "/snacks/" + snackId));
 	}
 	
 }
