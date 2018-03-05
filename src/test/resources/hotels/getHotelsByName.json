@@ -1,0 +1,29 @@
+{
+	"hotels": [
+		{
+			"name": "Disney's All-Star Movies Resort ",
+			"shortName": "All-Star Movies  ",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resorts/walt-disney-world/hotels/all-star-movies"
+				},
+				{
+					"rel": "dining",
+					"href": "/resorts/walt-disney-world/hotels/all-star-movies/dining/"
+				},
+				{
+					"rel": "location",
+					"href": "/hotels/location?longitude=-81.572209&latitude=28.335886&radius=0"
+				}
+			],
+			"longitude": -81.572209,
+			"latitude": 28.335886,
+			"resortArea": "Animal Kingdom",
+			"resort": {
+				"name": "Walt Disney World",
+				"url": "/resorts/walt-disney-world"
+			}
+		}
+	]
+}

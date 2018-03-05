@@ -6,10 +6,10 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.parkbenchapi.model.Attraction;
 
-public class AttractionRowMapper implements RowMapper{
+public class AttractionRowMapper implements RowMapper<Attraction> {
 
 	@Override
-	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public Attraction mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Attraction attraction = new Attraction();
 		attraction.setName(rs.getString("name"));
 		attraction.setShortName(rs.getString("short_name"));

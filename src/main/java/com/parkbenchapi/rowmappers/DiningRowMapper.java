@@ -5,12 +5,13 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.parkbenchapi.model.HotelDining;
+import com.parkbenchapi.model.LocatableResource;
 import com.parkbenchapi.model.ParkDining;
 
-public class DiningRowMapper implements RowMapper{
+public class DiningRowMapper implements RowMapper<LocatableResource>{
 
 	@Override
-	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public LocatableResource mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		if (rs.getMetaData().getTableName(1).equals("park_dining")) {
 			ParkDining dining = new ParkDining();

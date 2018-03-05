@@ -6,10 +6,10 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.parkbenchapi.model.CharacterMeet;
 
-public class CharacterRowMapper implements RowMapper{
+public class CharacterRowMapper implements RowMapper<CharacterMeet>{
 
 	@Override
-	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public CharacterMeet mapRow(ResultSet rs, int rowNum) throws SQLException {
 		CharacterMeet character = new CharacterMeet();
 		character.setCharacterName(rs.getString("name"));
 		character.setResort(rs.getString("resort_name"), rs.getString("resortId"));

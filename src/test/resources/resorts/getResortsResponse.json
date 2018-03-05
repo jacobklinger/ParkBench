@@ -1,0 +1,36 @@
+{
+  "resorts": [
+    {
+      "name": "Walt Disney World",
+      "shortName": "Walt Disney World",
+      "links": [
+        {
+          "rel": "self",
+          "href": "/resorts/walt-disney-world"
+        },
+        {
+          "rel": "parks",
+          "href": "/resorts/walt-disney-world/parks"
+        },
+        {
+          "rel": "hotels",
+          "href": "/resorts/walt-disney-world/hotels"
+        },
+        {
+          "rel": "characters",
+          "href": "/resorts/walt-disney-world/characters"
+        },
+        {
+          "rel": "snacks",
+          "href": "/resorts/walt-disney-world/snacks"
+        },
+        {
+          "rel": "location",
+          "href": "/resorts/location?longitude=-81.563874&latitude=28.385233&radius=0"
+        }
+      ],
+      "longitude": -81.563874,
+      "latitude": 28.385233
+    }
+  ]
+}

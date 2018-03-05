@@ -7,10 +7,10 @@ import org.springframework.jdbc.core.RowMapper;
 import com.parkbenchapi.model.Hotel;
 import com.parkbenchapi.model.LocatableResource;
 
-public class HotelRowMapper implements RowMapper{
+public class HotelRowMapper implements RowMapper<Hotel>{
 
 	@Override
-	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public Hotel mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Hotel hotel = new Hotel();
 		hotel.setName(rs.getString("name"));
 		hotel.setShortName(rs.getString("short_name"));

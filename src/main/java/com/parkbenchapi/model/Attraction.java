@@ -1,7 +1,5 @@
 package com.parkbenchapi.model;
 
-import java.util.ArrayList;
-
 public class Attraction extends LocatableResource {
 
 	private String land;

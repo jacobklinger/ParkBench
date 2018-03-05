@@ -1,0 +1,25 @@
+{
+	"dining": [
+		{
+			"name": "50's Prime Time Cafe",
+			"shortName": "50's Prime Time Cafe",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resorts/walt-disney-world/parks/hollywood-studios/dining/50s-prime-time-cafe"
+				}
+			],
+			"longitude": -81.558897,
+			"latitude": 28.357405,
+			"land": "Echo Lake",
+			"park": {
+				"name": "Disney’s Hollywood Studios",
+				"url": "/resorts/walt-disney-world/parks/hollywood-studios"
+			},
+			"resort": {
+				"name": "Walt Disney World",
+				"url": "/resorts/walt-disney-world"
+			}
+		}
+	]
+}
