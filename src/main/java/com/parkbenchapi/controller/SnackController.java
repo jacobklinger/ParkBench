@@ -1,24 +1,24 @@
 package com.parkbenchapi.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.parkbenchapi.dao.DataAccessObjectImpl;
+import com.parkbenchapi.dao.SnackDao;
 import com.parkbenchapi.model.*;
+import com.parkbenchapi.model.response.SnackResponse;
 
 @RestController
 public class SnackController {
 
 	@Autowired
-	DataAccessObjectImpl dao;
+	SnackDao dao;
 	
 	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/snacks")
-	ResponseEntity<ArrayList<Snack>> getSnacks(@PathVariable String resortId) {
-		return new ResponseEntity<ArrayList<Snack>>(dao.getSnacks(resortId), HttpStatus.OK);
+	ResponseEntity<SnackResponse> getSnacks(@PathVariable String resortId) {
+		SnackResponse snacks = new SnackResponse(dao.getSnacks(resortId));
+		return new ResponseEntity<SnackResponse>(snacks, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/snacks/{snackId}")
@@ -27,12 +27,15 @@ public class SnackController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/snacks")
-	ResponseEntity<ArrayList<Snack>> getAllSnacks(@RequestParam(value = "name", required = false)  String snackName, @RequestParam(value = "resort", required = false)  String resortName) {
+	ResponseEntity<SnackResponse> getAllSnacks(@RequestParam(value = "name", required = false)  String snackName, @RequestParam(value = "resort", required = false)  String resortName) {
+		SnackResponse snacks = new SnackResponse();
 		if (resortName != null || snackName != null) {
-			return new ResponseEntity<ArrayList<Snack>>(dao.getAllSnacks(snackName, resortName), HttpStatus.OK);
+			snacks.setSnacks(dao.getAllSnacks(snackName, resortName));
+			return new ResponseEntity<SnackResponse>(snacks, HttpStatus.OK);
 		}
 		else {
-			return new ResponseEntity<ArrayList<Snack>>(dao.getAllSnacks(), HttpStatus.OK);
+			snacks.setSnacks(dao.getAllSnacks());
+			return new ResponseEntity<SnackResponse>(snacks, HttpStatus.OK);
 		}
 	}
 

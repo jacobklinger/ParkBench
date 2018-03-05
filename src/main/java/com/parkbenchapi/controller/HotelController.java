@@ -1,24 +1,24 @@
 package com.parkbenchapi.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.parkbenchapi.dao.DataAccessObjectImpl;
+import com.parkbenchapi.dao.HotelDao;
 import com.parkbenchapi.model.*;
+import com.parkbenchapi.model.response.HotelResponse;
 
 @RestController
 public class HotelController {
 
 	@Autowired
-	DataAccessObjectImpl dao;
+	HotelDao dao;
 
 	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/hotels")
-	ResponseEntity<ArrayList<Hotel>> getHotels(@PathVariable String resortId) {
-		return new ResponseEntity<ArrayList<Hotel>>(dao.getHotels(resortId), HttpStatus.OK);
+	ResponseEntity<HotelResponse> getHotels(@PathVariable String resortId) {
+		HotelResponse hotels = new HotelResponse(dao.getHotels(resortId));
+		return new ResponseEntity<HotelResponse>(hotels, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/resorts/{resortId}/hotels/{hotelId}")
@@ -27,17 +27,21 @@ public class HotelController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/hotels/location")
-	ResponseEntity<ArrayList<Hotel>> getHotelsByLocation(@RequestParam double longitude, @RequestParam double latitude, @RequestParam double radius) {
-		return new ResponseEntity<ArrayList<Hotel>>(dao.getHotelsByLocation(longitude, latitude, radius), HttpStatus.OK);
+	ResponseEntity<HotelResponse> getHotelsByLocation(@RequestParam double longitude, @RequestParam double latitude, @RequestParam double radius) {
+		HotelResponse hotels = new HotelResponse(dao.getHotelsByLocation(longitude, latitude, radius));
+		return new ResponseEntity<HotelResponse>(hotels, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value="/hotels")
-	ResponseEntity<ArrayList<Hotel>> getAllParks(@RequestParam(value = "name", required = false)  String hotelName, @RequestParam(value = "resort", required = false)  String resortName) {
+	ResponseEntity<HotelResponse> getAllHotels(@RequestParam(value = "name", required = false)  String hotelName, @RequestParam(value = "resort", required = false)  String resortName) {
+		HotelResponse hotels = new HotelResponse();
 		if (hotelName != null || resortName != null) {
-			return new ResponseEntity<ArrayList<Hotel>>(dao.getAllHotels(hotelName, resortName), HttpStatus.OK);
+			hotels.setHotels(dao.getAllHotels(hotelName, resortName));
+			return new ResponseEntity<HotelResponse>(hotels, HttpStatus.OK);
 		}
 		else {
-			return new ResponseEntity<ArrayList<Hotel>>(dao.getAllHotels(), HttpStatus.OK);
+			hotels.setHotels(dao.getAllHotels());
+			return new ResponseEntity<HotelResponse>(hotels, HttpStatus.OK);
 		}
 	}
 

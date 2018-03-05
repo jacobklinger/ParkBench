@@ -1,0 +1,19 @@
+{
+	"name": "Captain Jack Sparrow’s Pirate Tutorial",
+	"shortName": "Captain Jack Sparrow’s Pirate Tutorial",
+	"links": [
+		{
+			"rel": "self",
+			"href": "/resorts/walt-disney-world/parks/magic-kingdom/entertainment/captain-jack-sparrows-pirate-tutorial"
+		}
+	],
+	"land": "Adventureland",
+	"park": {
+		"name": "Magic Kingdom",
+		"url": "/resorts/walt-disney-world/parks/magic-kingdom"
+	},
+	"resort": {
+		"name": "Walt Disney World",
+		"url": "/resorts/walt-disney-world"
+	}
+}

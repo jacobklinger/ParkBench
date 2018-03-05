@@ -1,6 +1,6 @@
 package com.parkbenchapi.model;
 
-public class Entertainment extends LocatableResource{
+public class Entertainment extends Resource {
 
 	private String land;
 	private NameAndURL park;

@@ -1,0 +1,32 @@
+{
+  "name": "Magic Kingdom",
+  "shortName": "Magic Kingdom",
+  "links": [
+    {
+      "rel": "self",
+      "href": "/resorts/walt-disney-world/parks/magic-kingdom"
+    },
+    {
+      "rel": "dining",
+      "href": "/resorts/walt-disney-world/parks/magic-kingdom/dining"
+    },
+    {
+      "rel": "attractions",
+      "href": "/resorts/walt-disney-world/parks/magic-kingdom/attractions"
+    },
+    {
+      "rel": "entertainment",
+      "href": "/resorts/walt-disney-world/parks/magic-kingdom/entertainment"
+    },
+    {
+      "rel": "location",
+      "href": "/parks/location?longitude=-81.581212&latitude=28.417663&radius=0"
+    }
+  ],
+  "longitude": -81.581212,
+  "latitude": 28.417663,
+  "resort": {
+    "name": "Walt Disney World",
+    "url": "/resorts/walt-disney-world"
+  }
+}

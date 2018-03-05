@@ -1,0 +1,13 @@
+{
+	"links": [
+		{
+			"rel": "self",
+			"href": "/resorts/walt-disney-world/characters/aladdin"
+		}
+	],
+	"characterName": "Aladdin",
+	"resort": {
+		"name": "Walt Disney World",
+		"url": "/resorts/walt-disney-world"
+	}
+}

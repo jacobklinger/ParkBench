@@ -1,0 +1,21 @@
+    {
+	"name": "Astro Orbiter",
+	"shortName": "Astro Orbiter",
+	"links": [
+		{
+			"rel": "self",
+			"href": "/resorts/walt-disney-world/parks/magic-kingdom/attractions/astro-orbiter"
+		}
+	],
+	"longitude": -81.578985,
+	"latitude": 28.41852,
+	"land": "Tomorrowland",
+	"park": {
+		"name": "Magic Kingdom",
+		"url": "/resorts/walt-disney-world/parks/magic-kingdom"
+	},
+	"resort": {
+		"name": "Walt Disney World",
+		"url": "/resorts/walt-disney-world"
+	}
+}

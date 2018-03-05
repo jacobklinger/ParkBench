@@ -1,0 +1,24 @@
+{
+	"dining": [
+		{
+			"name": "Chef Mickey’s",
+			"shortName": "Chef Mickey’s",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resorts/walt-disney-world/hotels/contemporary/dining/chef-mickeys"
+				}
+			],
+			"longitude": -81.574385,
+			"latitude": 28.414385,
+			"hotel": {
+				"name": "Disney's Contemporary Resort ",
+				"url": "/resorts/walt-disney-world/parks/contemporary"
+			},
+			"resort": {
+				"name": "Walt Disney World",
+				"url": "/resorts/walt-disney-world"
+			}
+		}
+	]
+}

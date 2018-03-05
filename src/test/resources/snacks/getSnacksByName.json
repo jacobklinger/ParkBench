@@ -1,0 +1,17 @@
+{
+	"snacks": [
+		{
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resorts/walt-disney-world/snacks/mickey-ice-cream-bar"
+				}
+			],
+			"name": "Mickey Ice Cream Bar",
+			"resort": {
+				"name": "Walt Disney World",
+				"url": "/resorts/walt-disney-world"
+			}
+		}
+	]
+}
